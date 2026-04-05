@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D0D0D">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/nonsenseImage"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/jib" />
+
+        <TextView
+            android:text="Daily Nonsense"
+            android:textSize="26sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Pick your mood. Receive chaos."
+            android:textSize="13sp"
+            android:textColor="#888888"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Mood buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnChaotic"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                android:backgroundTint="#FF4444"
+                android:text="moj"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <Button android:id="@+id/btnWise"
+                android:text="gyan"
+                android:backgroundTint="#4A90D9"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="6dp"/>
+
+            <Button android:id="@+id/btnBrave"
+                android:text="jigra"
+                android:backgroundTint="#E67E22"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="6dp"/>
+
+            <Button android:id="@+id/btnMonday"
+                android:text="modi"
+                android:backgroundTint="#8E44AD"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="6dp"/>
+        </LinearLayout>
+
+        <!-- Counters -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout android:layout_weight="1" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:orientation="vertical"
+                android:background="#1A1A1A" android:padding="10dp"
+                android:gravity="center">
+                <TextView android:id="@+id/tvGenCount" android:text="0"
+                    android:textSize="22sp" android:textColor="#FFFFFF" android:textStyle="bold"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="generated" android:textSize="11sp"
+                    android:textColor="#888888"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_weight="1" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:orientation="vertical"
+                android:background="#1A1A1A" android:padding="10dp"
+                android:gravity="center" android:layout_marginStart="6dp">
+                <TextView android:id="@+id/tvInsultCount" android:text="0"
+                    android:textSize="22sp" android:textColor="#FFFFFF" android:textStyle="bold"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="insults survived" android:textSize="11sp"
+                    android:textColor="#888888"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_weight="1" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:orientation="vertical"
+                android:background="#1A1A1A" android:padding="10dp"
+                android:gravity="center" android:layout_marginStart="6dp">
+                <TextView android:id="@+id/tvWisdomCount" android:text="0"
+                    android:textSize="22sp" android:textColor="#FFFFFF" android:textStyle="bold"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:text="wisdom units" android:textSize="11sp"
+                    android:textColor="#888888"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Generate button -->
+        <Button
+            android:id="@+id/btnGenerate"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#FF4444"
+            android:text="Generate my nonsense"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- Results -->
+        <LinearLayout
+            android:id="@+id/resultScroll"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Error -->
+            <TextView android:id="@+id/tvError"
+                android:visibility="gone"
+                android:textColor="#FF6B6B"
+                android:textSize="13sp"
+                android:padding="12dp"
+                android:background="#2A0000"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- Kanye card -->
+            <LinearLayout android:id="@+id/cardKanye"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:background="#1A1A1A"
+                android:padding="16dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:text="KANYE WEST, PHILOSOPHER"
+                    android:textSize="10sp" android:textColor="#AAAAAA"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:id="@+id/tvKanye"
+                    android:textSize="16sp" android:textColor="#FFFFFF"
+                    android:fontFamily="serif" android:textStyle="italic"
+                    android:lineSpacingMultiplier="1.5"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Chuck card -->
+            <LinearLayout android:id="@+id/cardChuck"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:background="#1A1A1A"
+                android:padding="16dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:text="CHUCK NORRIS FACT (TOTALLY REAL)"
+                    android:textSize="10sp" android:textColor="#AAAAAA"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:id="@+id/tvChuck"
+                    android:textSize="15sp" android:textColor="#FFFFFF"
+                    android:lineSpacingMultiplier="1.5"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Insult card -->
+            <LinearLayout android:id="@+id/cardInsult"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:background="#2A0000"
+                android:padding="16dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:text="THE INTERNET'S MESSAGE TO YOU"
+                    android:textSize="10sp" android:textColor="#FF8888"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:id="@+id/tvInsult"
+                    android:textSize="15sp" android:textColor="#FFCCCC"
+                    android:lineSpacingMultiplier="1.5"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Advice card -->
+            <LinearLayout android:id="@+id/cardAdvice"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:background="#001A0D"
+                android:padding="16dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:text="UNSOLICITED LIFE ADVICE"
+                    android:textSize="10sp" android:textColor="#88FFBB"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <TextView android:id="@+id/tvAdvice"
+                    android:textSize="15sp" android:textColor="#CCFFDD"
+                    android:lineSpacingMultiplier="1.5"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- Verdict -->
+            <TextView android:id="@+id/tvVerdict"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="16dp"
+                android:background="#1A1A1A"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- Yes/No GIF card -->
+            <LinearLayout android:id="@+id/cardGif"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:background="#1A1A1A"
+                android:padding="16dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView android:text="THE UNIVERSE SAYS..."
+                    android:textSize="10sp" android:textColor="#AAAAAA"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/ivYesNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"/>
+                <TextView android:id="@+id/tvYesNo"
+                    android:textSize="20sp" android:textColor="#FFFFFF"
+                    android:textStyle="bold" android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
